@@ -42,8 +42,8 @@ add:
 	sub sp, sp, #0x10 // Advantage in relation to default
 										// x86 behavior.
 										// Since this is a leaf function
-										// we don't need to keep track of old x29 and x30
-										// less use of stack, less instructions == more speed
+										// isn't needed keep track of old x29 and x30.
+										// Less use of stack, less instructions, more speed
 
 	stp w0, w1, [sp]	// Store w0 at sp -> | sp + 4 
 										// and store w1 at at sp + 4  -> | sp + 8
