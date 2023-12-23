@@ -8,13 +8,12 @@ strlen: .word 21
 .global _start
 
 _start:
-	stp x29, x30, [sp, #-0x10]!	// Grow the stack size in 32 bytes
+	stp x29, x30, [sp, #-0x20]!	// Grow the stack size in 32 bytes
 															// and store x29 and x30 (8 bytes each)
 															// x29 is the frame pointer
 															// x30 is the link register (stores the ret addr)
 															// equivalent to push x; push y; mov rbp rsp
 															// in x86
-	sub sp, sp, #0x10						// Increase 16 bytes in the stack
 															// sp must be multiple of 0x10 or 16
 
 	mov x0, #0x3			// Set argument 1
