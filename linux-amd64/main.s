@@ -25,7 +25,7 @@ ret_addr:				# add function will pop the ret_addr from the stack
 	mov esi, strlen	# Load the print count argument
 	call print			# Jump to print and push program counter to the stack
 	mov edi, [rbp-0x4]	# Passing the add result to function exit 
-									# (can be any register, but edi/rdi is used for the first
+									# (can be any register, but rdi is used for the first
 									# argument by convention).
 	jmp exit				# Just jump, exit will not return so we don't need to push
 									# the return address to the stack
