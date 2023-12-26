@@ -1,4 +1,4 @@
-CC = $(cc)
+CC = cc
 CFLAGS = -Wall -Werror -O0
 ASMFLAGS = -w -O0 -nostdlib -no-pie
 
@@ -10,16 +10,16 @@ bin:
 	@mkdir -p bin
 
 bin/main: main.s
-	@cc $(ASMFLAGS) -o bin/main main.s
+	@$(CC) $(ASMFLAGS) -o bin/main main.s
 
 bin/main1: main.o add.o
-	@cc -o bin/main1 main.o add.o
+	@$(CC) -o bin/main1 main.o add.o
 
 main.o: main.c
-	@cc $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 add.o: add.s
-	@cc $(ASMFLAGS) -c -o $@ $<
+	@$(CC) $(ASMFLAGS) -c -o $@ $<
 
 clean:
 	@rm -rf bin *.o
